@@ -1,0 +1,9 @@
+{
+  "sites": [
+    {
+      "slug": "massive-forest-quiet",
+      "distDir": "dist",
+      "buildCommand": "npm install && npm run build"
+    }
+  ]
+}

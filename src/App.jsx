@@ -3,6 +3,7 @@ import { NftSale } from "./pages/NftSale"
 import { TokenPreSale } from "./pages/TokenPreSale"
 import { HomePage } from "./pages/HomePage"
 
+export const NFTSALEaddress = '0x43E3CDE59234B423b06A5Bfee7273DCf334cF1fb'
 
 
 function App() {
