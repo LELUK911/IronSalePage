@@ -1,4 +1,4 @@
-import { FaTwitter, FaGithub, FaDiscord, FaMedium } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import epicBadger from "../../assets/FirstInYourNameBadger.webp";
 
 export const BodyHomePage = () => {
@@ -11,13 +11,15 @@ export const BodyHomePage = () => {
           Iron Badger Brotherhood
         </h1>
         <p className="text-gray-400 max-w-2xl mt-4">
-          Unisciti alla prima generazione di Iron Badgers!
-          I primi 1000 **NFT Character** garantiranno vantaggi unici
-          all’interno dell’ecosistema **Iron Badger**.
+          Join the first generation of Iron Badgers!
+          The first 1000 **NFT Characters** will grant unique benefits
+          within the **Iron Badger** ecosystem.
         </p>
         <img src={epicBadger} alt="Iron Badger NFT" className="w-64 sm:w-80 my-8 rounded-lg shadow-lg" />
-        <button className="bg-etherealGreen hover:bg-mysticCyan text-white font-bold py-3 px-6 rounded-lg shadow-md transition text-lg">
-          Mint Your NFT
+        <button className="bg-etherealGreen hover:bg-mysticCyan text-yellow-600 font-bold py-3 px-6 rounded-lg shadow-md transition text-lg">
+          <Link to={'/nftsale'} >
+            Mint Your NFT
+          </Link>
         </button>
       </section>
 
@@ -27,12 +29,12 @@ export const BodyHomePage = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {[
-            { title: "Minting Esclusivo", desc: "Solo 1000 NFT Character. 20 Limited Edition, 120 Rare, e il resto Prima Edizione.", color: "etherealGreen", icon: "🔥" },
-            { title: "EXP Boost", desc: "I primi minter riceveranno un bonus EXP iniziale, iniziando con un rango maggiore.", color: "mysticCyan", icon: "⚔️" },
-            { title: "Item Esclusivi", desc: "Chi minterà riceverà item di gioco a tiratura limitata quando verranno rilasciati.", color: "arcanePurple", icon: "🎁" },
-            { title: "Sconti nel Mercatino", desc: "Sconti esclusivi sull’acquisto di Item nel mercatino quando sarà lanciato.", color: "etherealGreen", icon: "💰" },
-            { title: "Accesso alla Pre-Sale", desc: "I partecipanti al minting avranno accesso prioritario alla pre-sale del token di governance.", color: "mysticCyan", icon: "🚀" },
-            { title: "Governance", desc: "Gli NFT holder potranno partecipare alla governance dell’ecosistema dal rango Cavaliere in poi.", color: "arcanePurple", icon: "🏛️" }
+            { "title": "Exclusive Minting", "desc": "Only 1000 NFT Characters. 20 Limited Edition, 120 Rare, and the rest First Edition.", "color": "etherealGreen", "icon": "🔥" },
+            { "title": "EXP Boost", "desc": "Early minters will receive an initial EXP bonus, starting with a higher rank.", "color": "mysticCyan", "icon": "⚔️" },
+            { "title": "Exclusive Items", "desc": "Minters will receive limited-edition in-game items when they are released.", "color": "arcanePurple", "icon": "🎁" },
+            { "title": "Marketplace Discounts", "desc": "Exclusive discounts on item purchases in the marketplace when launched.", "color": "etherealGreen", "icon": "💰" },
+            { "title": "Pre-Sale Access", "desc": "Minters will have priority access to the governance token pre-sale.", "color": "mysticCyan", "icon": "🚀" },
+            { "title": "Governance", "desc": "NFT holders can participate in the ecosystem’s governance from Knight rank onward.", "color": "arcanePurple", "icon": "🏛️" }
           ].map((benefit, index) => (
             <div
               key={index}
@@ -62,18 +64,18 @@ export const BodyHomePage = () => {
 
           <div className="space-y-12">
             {[
-              { title: "Lancio Tesnet", desc: "Distribuzione iniziale della piattaforma in testnet per debugging e sicurezza.", color: "etherealGreen" },
-              { title: "Costruzione Community", desc: "Creazione di una community solida per sostenere l'ecosistema.", color: "mysticCyan" },
-              { title: "Vendita NFT", desc: "Prima vendita di 1000 NFT con vantaggi esclusivi per i possessori.", color: "arcanePurple" },
-              { title: "Pre-Sale Token Governance", desc: "Accesso anticipato al token di governance per gli NFT holders.", color: "etherealGreen" },
-              { title: "Lancio Mainnet Iron Badger Finance", desc: "Attivazione della piattaforma su blockchain mainnet.", color: "mysticCyan" },
-              { title: "Public-Sale Token Governance", desc: "Apertura della vendita pubblica del token di governance.", color: "arcanePurple" },
-              { title: "Battlegame (Beta) in Tesnet", desc: "Versione iniziale del gioco di combattimento in testnet.", color: "etherealGreen" },
-              { title: "Item di Gioco & Mercatino in Tesnet", desc: "Rilascio degli oggetti e del marketplace in testnet.", color: "mysticCyan" },
-              { title: "Battlegame (Beta2) in Mainnet", desc: "Aggiornamento del gioco con integrazione completa in mainnet.", color: "arcanePurple" },
-              { title: "Item di Gioco & Mercatino in Mainnet", desc: "Rilascio definitivo del mercato e degli oggetti su blockchain.", color: "etherealGreen" },
-              { title: "Mercato Bond allo Scoperto", desc: "Introduzione di un mercato per lo short trading di bond NFT.", color: "mysticCyan" },
-              { title: "Lancio DAO Gamificata con Governance Doppia", desc: "Creazione di un sistema di governance decentralizzato gamificato.", color: "arcanePurple" }
+              { "title": "Testnet Launch", "desc": "Initial deployment of the platform in testnet for debugging and security.", "color": "etherealGreen" },
+              { "title": "Community Building", "desc": "Establishing a strong community to support the ecosystem.", "color": "mysticCyan" },
+              { "title": "NFT Sale", "desc": "First sale of 1000 NFTs with exclusive benefits for holders.", "color": "arcanePurple" },
+              { "title": "Governance Token Pre-Sale", "desc": "Early access to the governance token for NFT holders.", "color": "etherealGreen" },
+              { "title": "Mainnet Launch of Iron Badger Finance", "desc": "Activation of the platform on the main blockchain.", "color": "mysticCyan" },
+              { "title": "Governance Token Public Sale", "desc": "Opening of the public sale for the governance token.", "color": "arcanePurple" },
+              { "title": "Battlegame (Beta) in Testnet", "desc": "Initial version of the combat game in testnet.", "color": "etherealGreen" },
+              { "title": "Game Items & Marketplace in Testnet", "desc": "Release of in-game items and the marketplace in testnet.", "color": "mysticCyan" },
+              { "title": "Battlegame (Beta2) in Mainnet", "desc": "Game update with full integration into mainnet.", "color": "arcanePurple" },
+              { "title": "Game Items & Marketplace in Mainnet", "desc": "Final release of the marketplace and in-game items on blockchain.", "color": "etherealGreen" },
+              { "title": "Short Trading Bond Market", "desc": "Introduction of a market for short trading NFT bonds.", "color": "mysticCyan" },
+              { "title": "Launch of Gamified DAO with Dual Governance", "desc": "Creation of a decentralized gamified governance system.", "color": "arcanePurple" }
             ].map((step, index) => (
               <div key={index} className={`flex items-center justify-${index % 2 === 0 ? "start" : "end"} relative`}>
                 {/* Box Testuale a sinistra/destra alternato */}

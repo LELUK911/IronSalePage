@@ -5,8 +5,14 @@ import { firstEdition, limitedEdition, rareEdition } from "./textSection/TextrSe
 import { NFTSALEaddress } from "../../App"
 import { BuyNftButton } from "./BuyNftButton"
 
-export const SaleSection = () => {
-    const elements = ["Earth", "Air", "Fire", "Water"];
+export const SaleSection = ({ onChange }) => {
+    const elements = [
+        { value: 0, name: "Earth", color: "bg-green-700 hover:bg-green-600 border-green-500" },
+        { value: 1, name: "Air", color: "bg-blue-400 hover:bg-blue-300 border-blue-300" },
+        { value: 2, name: "Fire", color: "bg-red-600 hover:bg-red-500 border-red-400" },
+        { value: 3, name: "Water", color: "bg-cyan-500 hover:bg-cyan-400 border-cyan-300" }
+    ];
+
     const [texts, setTexts] = useState({
         name: "",
         description: "",
@@ -22,11 +28,13 @@ export const SaleSection = () => {
             }
         ]
     })
-    const [buyAmount, setBuyAmount] = useState(0);
+    //const [buyAmount, setBuyAmount] = useState(0);
     const [avvalibleNFT, setAvvalible] = useState(1000)
+    const [element, setElement] = useState('')
 
 
-    const { data, isLoading, isError } = useReadContract({
+
+    const { data, isLoading, isError,refetch } = useReadContract({
         address: NFTSALEaddress,
         abi: jsonNftSale.abi,
         functionName: 'returnActualmint',
@@ -44,6 +52,7 @@ export const SaleSection = () => {
                 setTexts(firstEdition)
             }
             setAvvalible((prev) => prev - (+data.toString()))
+            onChange(data)
         }
     }, [data])
 
@@ -67,7 +76,7 @@ export const SaleSection = () => {
     }
     const RenderBuyButton = () => {
         return (
-            <>
+            <div className="flex justify-center items-center">
                 {isLoading ? (
                     <h4 className="text-yellow-700 text-2xl sm:text-3xl font-semibold underline animate-pulse">
                         Loading...
@@ -77,13 +86,30 @@ export const SaleSection = () => {
                         Error loading data
                     </h4>
                 ) : (
-                    <BuyNftButton element={1} amount={buyAmount} actualIndex={data.toString()} />
-                )}</>
+                    <BuyNftButton element={element} amount={1} actualIndex={data.toString()} refetch={refetch}/>
+                )}</div>
         )
     }
-    const RenderSelectType = ()=>{
-        
-    }
+    const ElementSelector = () => {
+        const handleSelect = (element) => {
+            setElement(element);
+        };
+        return (
+            <div className="flex justify-center space-x-4 mt-4">
+                {elements.map((el) => (
+                    <button
+                        key={el.name}
+                        onClick={() => handleSelect(el.value)}
+                        className={`px-6 py-3 rounded-lg font-bold border-4 transition ${element === el.value ? "scale-125" : "opacity-80"
+                            } ${el.color} text-white shadow-lg`}
+                    >
+                        {el.name}
+                    </button>
+                ))}
+            </div>
+        );
+    };
+
 
     return (
         <div className="flex justify-center px-4 sm:px-6 lg:px-12 py-10">
@@ -163,19 +189,7 @@ export const SaleSection = () => {
                         </p>
 
                         {/* Pulsanti per selezionare la quantità */}
-                        <div className="flex items-center space-x-2">
-                            <label className="text-gray-200 text-2xl mr-4 font-bold">Quantità: {buyAmount}</label>
-                            {[1, 2, 3, 4, 5].map((num) => (
-                                <button
-                                    key={num}
-                                    onClick={() => setBuyAmount(num)}
-                                    className={`px-4 py-2 rounded-lg border border-mysticCyan text-white font-semibold transition-all 
-                ${buyAmount === num ? "bg-mysticCyan text-obsidianBlack" : "bg-obsidianBlack hover:bg-etherealGreen"}`}
-                                >
-                                    {num}
-                                </button>
-                            ))}
-                        </div>
+                        <ElementSelector />
                     </div>
 
                 </div>

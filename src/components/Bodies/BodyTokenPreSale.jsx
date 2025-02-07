@@ -30,36 +30,38 @@ export const BodyTokenPreSale = () => {
 
   return (
     <div className="bg-gradient-to-b from-obsidianBlack to-darkTeal min-h-screen flex flex-col items-center justify-center text-white">
-      
+
       {/* Hero Section */}
       <div className="text-center px-6">
         <h1 className="text-5xl font-bold text-etherealGreen">
-          Pre-Sale del Token in Arrivo! 🚀
+          Token Pre-Sale Coming Soon! 🚀
         </h1>
         <p className="text-gray-300 text-lg mt-4">
-          La prima fase della vendita del token **Iron Badger** inizierà presto.  
-          Ottieni un **vantaggio esclusivo** partecipando alla Pre-Sale.
+          The first phase of the **Iron Badger** token sale is starting soon.
+          Gain an **exclusive advantage** by participating in the Pre-Sale.
         </p>
+
 
         {/* Conto alla Rovescia */}
         <div className="flex justify-center space-x-6 text-center mt-8 text-4xl font-bold">
           {Object.keys(timeLeft).length > 0 ? (
             <>
               <div className="p-4 bg-obsidianBlack rounded-lg border border-mysticCyan">
-                {timeLeft.giorni} <span className="text-sm block text-gray-400">Giorni</span>
+                {/*timeLeft.days*/}0<span className="text-sm block text-gray-400">Days</span>
               </div>
               <div className="p-4 bg-obsidianBlack rounded-lg border border-etherealGreen">
-                {timeLeft.ore} <span className="text-sm block text-gray-400">Ore</span>
+                {/*timeLeft.hours*/} 0<span className="text-sm block text-gray-400">Hours</span>
               </div>
               <div className="p-4 bg-obsidianBlack rounded-lg border border-arcanePurple">
-                {timeLeft.minuti} <span className="text-sm block text-gray-400">Minuti</span>
+                {/*timeLeft.minutes*/} 0<span className="text-sm block text-gray-400">Minutes</span>
               </div>
               <div className="p-4 bg-obsidianBlack rounded-lg border border-mysticCyan">
-                {timeLeft.secondi} <span className="text-sm block text-gray-400">Secondi</span>
+                {/*timeLeft.seconds*/} 0<span className="text-sm block text-gray-400">Seconds</span>
               </div>
             </>
+
           ) : (
-            <span className="text-3xl text-etherealGreen">Pre-Sale Attiva Ora! 🚀</span>
+            <span className="text-3xl text-etherealGreen">Pre-Sale Active Now! 🚀</span>
           )}
         </div>
 
@@ -68,29 +70,16 @@ export const BodyTokenPreSale = () => {
 
       {/* Informazioni sulla Pre-Sale */}
       <div className="mt-16 px-6 max-w-3xl text-center">
-        <h2 className="text-3xl font-bold text-mysticCyan">Perché Partecipare alla Pre-Sale?</h2>
+        <h2 className="text-3xl font-bold text-mysticCyan">Why Join the Pre-Sale?</h2>
         <p className="text-gray-300 mt-4">
-          🏆 **Prezzo esclusivo** per i primi partecipanti.  
-          🎖️ **Vantaggi in staking** per gli early adopters.  
-          🔥 **Accesso anticipato** a funzionalità esclusive.  
+          🏆 **Exclusive price** for early participants.
+          🎖️ **Staking benefits** for early adopters.
+          🔥 **Early access** to exclusive features.
         </p>
+
       </div>
 
-      {/* Link alla Community */}
-      <div className="mt-12 flex space-x-6">
-        <a href="https://discord.com" className="text-gray-400 hover:text-indigo-500 transition text-3xl">
-          <FaDiscord />
-        </a>
-        <a href="https://twitter.com" className="text-gray-400 hover:text-blue-500 transition text-3xl">
-          <FaTwitter />
-        </a>
-      </div>
-
-      {/* Footer */}
-      <footer className="absolute bottom-4 text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} Iron Badger Protocol. Tutti i diritti riservati.
-      </footer>
-      
+   
     </div>
   );
 };
