@@ -1,7 +1,7 @@
 {
   "sites": [
     {
-      "slug": "massive-forest-quiet",
+      "slug": "ironlaunch",
       "distDir": "dist",
       "buildCommand": "npm install && npm run build"
     }

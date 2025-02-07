@@ -51,57 +51,40 @@ export const BodyHomePage = () => {
           ))}
         </div>
       </section>
-
-
-
       {/* Roadmap */}
       <section className="py-16 px-6 bg-darkTeal text-white text-center">
-        <h2 className="text-4xl font-bold mb-10 text-etherealGreen">Roadmap</h2>
+        <h2 className="text-4xl font-bold mb-12 text-etherealGreen">Roadmap</h2>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Linea centrale */}
-          <div className="border-l-4 border-mysticCyan absolute h-full left-1/2 transform -translate-x-1/2 hidden sm:block"></div>
+        <div className="relative max-w-5xl mx-auto flex flex-col items-center">
+          {[
+            { title: "Testnet Launch", desc: "Initial deployment of the platform in testnet for debugging and security.", color: "bg-etherealGreen" },
+            { title: "Community Building", desc: "Establishing a strong community to support the ecosystem.", color: "bg-mysticCyan" },
+            { title: "NFT Sale", desc: "First sale of 1000 NFTs with exclusive benefits for holders.", color: "bg-arcanePurple" },
+            { title: "Governance Token Pre-Sale", desc: "Early access to the governance token for NFT holders.", color: "bg-etherealGreen" },
+            { title: "Mainnet Launch of Iron Badger Finance", desc: "Activation of the platform on the main blockchain.", color: "bg-mysticCyan" },
+            { title: "Governance Token Public Sale", desc: "Opening of the public sale for the governance token.", color: "bg-arcanePurple" },
+            { title: "Battlegame (Beta) in Testnet", desc: "Initial version of the combat game in testnet.", color: "bg-etherealGreen" },
+            { title: "Game Items & Marketplace in Testnet", desc: "Release of in-game items and the marketplace in testnet.", color: "bg-mysticCyan" },
+            { title: "Battlegame (Beta2) in Mainnet", desc: "Game update with full integration into mainnet.", color: "bg-arcanePurple" },
+            { title: "Game Items & Marketplace in Mainnet", desc: "Final release of the marketplace and in-game items on blockchain.", color: "bg-etherealGreen" },
+            { title: "Short Trading Bond Market", desc: "Introduction of a market for short trading NFT bonds.", color: "bg-mysticCyan" },
+            { title: "Launch of Gamified DAO with Dual Governance", desc: "Creation of a decentralized gamified governance system.", color: "bg-arcanePurple" }
+          ].map((step, index) => (
+            <div key={index} className="relative w-full flex flex-col items-center">
+              {/* Linea che collega i blocchi */}
+              {index > 0 && (
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-12 bg-gray-400"></div>
+              )}
 
-          <div className="space-y-12">
-            {[
-              { "title": "Testnet Launch", "desc": "Initial deployment of the platform in testnet for debugging and security.", "color": "etherealGreen" },
-              { "title": "Community Building", "desc": "Establishing a strong community to support the ecosystem.", "color": "mysticCyan" },
-              { "title": "NFT Sale", "desc": "First sale of 1000 NFTs with exclusive benefits for holders.", "color": "arcanePurple" },
-              { "title": "Governance Token Pre-Sale", "desc": "Early access to the governance token for NFT holders.", "color": "etherealGreen" },
-              { "title": "Mainnet Launch of Iron Badger Finance", "desc": "Activation of the platform on the main blockchain.", "color": "mysticCyan" },
-              { "title": "Governance Token Public Sale", "desc": "Opening of the public sale for the governance token.", "color": "arcanePurple" },
-              { "title": "Battlegame (Beta) in Testnet", "desc": "Initial version of the combat game in testnet.", "color": "etherealGreen" },
-              { "title": "Game Items & Marketplace in Testnet", "desc": "Release of in-game items and the marketplace in testnet.", "color": "mysticCyan" },
-              { "title": "Battlegame (Beta2) in Mainnet", "desc": "Game update with full integration into mainnet.", "color": "arcanePurple" },
-              { "title": "Game Items & Marketplace in Mainnet", "desc": "Final release of the marketplace and in-game items on blockchain.", "color": "etherealGreen" },
-              { "title": "Short Trading Bond Market", "desc": "Introduction of a market for short trading NFT bonds.", "color": "mysticCyan" },
-              { "title": "Launch of Gamified DAO with Dual Governance", "desc": "Creation of a decentralized gamified governance system.", "color": "arcanePurple" }
-            ].map((step, index) => (
-              <div key={index} className={`flex items-center justify-${index % 2 === 0 ? "start" : "end"} relative`}>
-                {/* Box Testuale a sinistra/destra alternato */}
-                <div className={`w-1/2 hidden sm:flex justify-${index % 2 === 0 ? "end" : "start"} px-6`}>
-                  <div className={`bg-${step.color} text-white p-4 rounded-lg shadow-lg border border-white transform transition hover:scale-105 max-w-sm`}>
-                    <p className="text-lg font-bold">{index + 1}. {step.title}</p>
-                    <p className="text-sm mt-2">{step.desc}</p>
-                  </div>
-                </div>
-
-                {/* Punto di connessione alla linea centrale */}
-                <div className="w-6 h-6 bg-white rounded-full absolute left-1/2 transform -translate-x-1/2 border-4 border-mysticCyan"></div>
-
-                {/* Mobile-friendly: Box sempre centrato sotto il punto */}
-                <div className={`w-1/2 sm:hidden flex justify-center`}>
-                  <div className={`bg-${step.color} text-white p-4 rounded-lg shadow-lg border border-white transform transition hover:scale-105 max-w-sm`}>
-                    <p className="text-lg font-bold">{index + 1}. {step.title}</p>
-                    <p className="text-sm mt-2">{step.desc}</p>
-                  </div>
-                </div>
+              {/* Step con effetto scalato */}
+              <div className={`p-6 rounded-lg shadow-lg border border-gray-300 ${step.color} transform transition hover:scale-105 w-10/12 sm:w-8/12 lg:w-6/12 ${index % 2 === 0 ? "ml-auto text-right" : "mr-auto text-left"}`}>
+                <p className="text-lg font-bold">{index + 1}. {step.title}</p>
+                <p className="text-sm mt-2">{step.desc}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
-
     </div>
   );
 };
