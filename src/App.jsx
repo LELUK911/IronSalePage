@@ -15,8 +15,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/nftsale" element={<NftSale />} />
         <Route path="/tokenpresale" element={<TokenPreSale />} />
-
-
       </Routes>
     </Routers>
   )

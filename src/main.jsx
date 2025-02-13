@@ -20,14 +20,13 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-const config = getDefaultConfig({
-  appName: 'My RainbowKit App',
-  projectId: 'YOUR_PROJECT_ID',
-  chains: [sepolia,
-    baseSepolia],
-  ssr: true, // If your dApp uses server side rendering (SSR)
-});
 
+const config = getDefaultConfig({
+  appName: import.meta.env.VITE_APPNAME,
+  projectId: import.meta.env.VITE_PROJECTID,
+  chains: [sepolia],
+  ssr: true,
+});
 
 const queryClient = new QueryClient();
 
